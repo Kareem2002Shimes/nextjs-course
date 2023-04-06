@@ -26,7 +26,7 @@ function ProductDetailsPage(props) {
 export default ProductDetailsPage;
 
 export async function getStaticPaths() {
-  // connect to database to get products ids
+  // connect to database to  get products ids
   dbConnect();
   const products = await Product.find({}, { _id: 1 });
   return {
