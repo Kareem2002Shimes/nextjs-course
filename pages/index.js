@@ -21,9 +21,7 @@ export default HomePage;
 
 export async function getServerSideProps() {
   // fetch data from an API
-  const res = await axios.get(
-    `${process.env.APP_DEV || process.env.APP_PROD}/api/products`
-  );
+  const res = await axios.get(`https://nextjs-course.vercel.app/api/products`);
   return {
     props: {
       products: res.data.data.map((product) => ({
