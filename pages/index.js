@@ -23,15 +23,12 @@ export default HomePage;
 
 export async function getServerSideProps() {
   // fetch data from an API
-  // const res = await axios.get(
-  //   `${process.env.APP_DEV || process.env.APP_PROD}/api/products`
-  // );
   dbConnect();
-  const products = await Product.find();
+  const productsData = await Product.find();
 
   return {
     props: {
-      products: products.map((product) => ({
+      products: productsData.map((product) => ({
         image: product.image,
         name: product.name,
         price: product.price,
